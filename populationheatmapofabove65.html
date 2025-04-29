@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數據設計思考</title>
+    <style>
+        body {
+            background-color: #F5E4D7; /* 淡香檳色 */
+            font-family: "標楷體", serif; /* 字型設為標楷體 */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #F5E4D7;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #4A4A4A; /* 深灰色 */
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #B0C4C8; /* 莫蘭迪淺藍色 */
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 800px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 陰影效果 */
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s; /* 動態效果 */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* 放大效果 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* 增強陰影 */
+        }
+
+        .card p {
+            color: #333;
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            border: none;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s; /* 動態效果 */
+        }
+
+        iframe:hover {
+            transform: scale(1.03); /* 放大效果 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* 增強陰影 */
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            iframe {
+                height: 400px; /* 減少高度以適應小螢幕 */
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 2em; /* 調整標題大小 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>數據設計思考</h1>
+    </header>
+    <div class="container">
+        <!-- 圖卡介紹文字 -->
+        <div class="card">
+            <p>這裡是介紹文字，您可以在這裡加入關於圖表的描述或背景資料。</p>
+        </div>
+        <!-- 嵌入的圖表 -->
+        <iframe src="https://plotdb.io/v/chart/37322" allowfullscreen="true"></iframe>
+        <iframe src="https://plotdb.io/v/chart/37333" allowfullscreen="true"></iframe>
+        <iframe src="https://plotdb.io/v/chart/37340" allowfullscreen="true"></iframe>
+    </div>
+</body>
+</html>
