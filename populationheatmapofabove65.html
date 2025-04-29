@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>數據設計思考</title>
     <style>
+        /* 全域樣式 */
         body {
             background-color: #F5E4D7; /* 淡香檳色 */
             font-family: "標楷體", serif; /* 字型設為標楷體 */
@@ -33,8 +34,9 @@
             padding: 20px;
         }
 
+        /* 圖卡樣式 */
         .card {
-            background-color: #B0C4C8; /* 莫蘭迪淺藍色 */
+            background-color: #D6E1E3; /* 更淺的莫蘭迪藍色 */
             border-radius: 15px;
             padding: 20px;
             max-width: 800px;
@@ -55,6 +57,24 @@
             margin: 0;
         }
 
+        /* 圖表名稱樣式 */
+        .chart-title-card {
+            background-color: #E6D9CB; /* 莫蘭迪淺米色 */
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 800px;
+            margin-bottom: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title-card h2 {
+            font-size: 1.5em;
+            color: #4A4A4A; /* 深灰色 */
+            margin: 0;
+        }
+
+        /* 圖表嵌入樣式 */
         iframe {
             width: 100%;
             max-width: 800px;
@@ -71,17 +91,63 @@
         }
 
         /* 響應式設計 */
-        @media (max-width: 768px) {
-            iframe {
-                height: 400px; /* 減少高度以適應小螢幕 */
+        @media (max-width: 1024px) {
+            header h1 {
+                font-size: 2em; /* 調整標題大小 */
             }
 
             .card {
+                max-width: 90%;
                 padding: 15px;
             }
 
+            .chart-title-card {
+                max-width: 90%;
+                padding: 10px;
+            }
+
+            iframe {
+                height: 500px; /* 減少圖表高度 */
+            }
+        }
+
+        @media (max-width: 768px) {
             header h1 {
-                font-size: 2em; /* 調整標題大小 */
+                font-size: 1.8em; /* 更小的標題 */
+            }
+
+            .card {
+                max-width: 90%;
+                padding: 10px;
+            }
+
+            .chart-title-card {
+                max-width: 90%;
+                padding: 8px;
+            }
+
+            iframe {
+                height: 400px; /* 更小的圖表高度 */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em; /* 手機版標題 */
+            }
+
+            .card {
+                max-width: 95%;
+                padding: 8px;
+            }
+
+            .chart-title-card {
+                max-width: 95%;
+                padding: 5px;
+            }
+
+            iframe {
+                height: 300px; /* 手機版圖表高度 */
             }
         }
     </style>
@@ -95,9 +161,20 @@
         <div class="card">
             <p>這裡是介紹文字，您可以在這裡加入關於圖表的描述或背景資料。</p>
         </div>
-        <!-- 嵌入的圖表 -->
+        <!-- 第一個圖表 -->
+        <div class="chart-title-card">
+            <h2>圖表名稱：高齡人口熱力圖</h2>
+        </div>
         <iframe src="https://plotdb.io/v/chart/37322" allowfullscreen="true"></iframe>
+        <!-- 第二個圖表 -->
+        <div class="chart-title-card">
+            <h2>圖表名稱：不同年齡段的分佈</h2>
+        </div>
         <iframe src="https://plotdb.io/v/chart/37333" allowfullscreen="true"></iframe>
+        <!-- 第三個圖表 -->
+        <div class="chart-title-card">
+            <h2>圖表名稱：人口增長趨勢</h2>
+        </div>
         <iframe src="https://plotdb.io/v/chart/37340" allowfullscreen="true"></iframe>
     </div>
 </body>
