@@ -15,13 +15,13 @@
         }
 
         header {
-            text-align: center;
+            text-align: left; /* 改為靠左對齊 */
             padding: 40px 20px;
             background-color: #F5E4D7;
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 3em; /* 增大字體 */
             color: #4A4A4A; /* 深灰色 */
             margin: 0;
         }
@@ -42,7 +42,7 @@
             max-width: 800px;
             margin-bottom: 20px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 陰影效果 */
-            text-align: center;
+            text-align: left; /* 改為靠左對齊 */
             transition: transform 0.3s, box-shadow 0.3s; /* 動態效果 */
         }
 
@@ -51,9 +51,9 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* 增強陰影 */
         }
 
-        .card p {
+        .card p, .card ul {
             color: #333;
-            font-size: 1.2em;
+            font-size: 1.5em; /* 增大字體 */
             margin: 0;
         }
 
@@ -64,12 +64,12 @@
             padding: 10px;
             max-width: 800px;
             margin-bottom: 10px;
-            text-align: center;
+            text-align: left; /* 改為靠左對齊 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .chart-title-card h2 {
-            font-size: 1.5em;
+            font-size: 1.8em; /* 增大字體 */
             color: #4A4A4A; /* 深灰色 */
             margin: 0;
         }
@@ -93,7 +93,7 @@
         /* 響應式設計 */
         @media (max-width: 1024px) {
             header h1 {
-                font-size: 2em; /* 調整標題大小 */
+                font-size: 2.5em; /* 調整標題大小 */
             }
 
             .card {
@@ -113,7 +113,7 @@
 
         @media (max-width: 768px) {
             header h1 {
-                font-size: 1.8em; /* 更小的標題 */
+                font-size: 2em; /* 更小的標題 */
             }
 
             .card {
@@ -133,7 +133,7 @@
 
         @media (max-width: 480px) {
             header h1 {
-                font-size: 1.5em; /* 手機版標題 */
+                font-size: 1.8em; /* 手機版標題 */
             }
 
             .card {
