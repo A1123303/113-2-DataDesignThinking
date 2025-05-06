@@ -7,22 +7,25 @@
   <style>
     body {
       background-color: #F5E4D7;
-      font-family: "標楷體", "Arial", sans-serif;
+      font-family: "微軟正黑體", Arial, sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.8;
+      color: #333;
     }
 
     header {
       text-align: center;
       padding: 40px 20px;
-      background-color: #F2D8B3;
+      background-color: #F5E4D7;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
     header h1 {
-      font-size: 2.5em;
-      color: #333;
+      font-size: 2.8em;
+      color: #4A4A4A;
       margin: 0;
+      font-weight: bold;
     }
 
     .container {
@@ -33,12 +36,13 @@
       flex-wrap: wrap;
       margin: 20px;
       padding: 20px;
-      gap: 20px;
+      gap: 30px;
     }
 
     .card, .chart-area {
       flex: 1 1 48%;
       box-sizing: border-box;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card {
@@ -48,12 +52,17 @@
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
       text-align: left;
       font-size: 1.1em;
-      height: auto;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     .card p, .card ul {
-      color: #333;
-      margin: 0 0 1.5em 0;
+      margin: 0 0 1em 0;
     }
 
     .card li {
@@ -64,13 +73,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: auto;
+      height: 100%;
     }
 
     .chart-title-card {
       background-color: #CCD2CC;
       border-radius: 10px;
-      padding: 10px;
+      padding: 15px;
       width: 100%;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -78,9 +87,10 @@
     }
 
     .chart-title-card h2 {
-      font-size: 1.2em;
-      color: #333;
+      font-size: 1.4em;
+      color: #4A4A4A;
       margin: 0;
+      font-weight: bold;
     }
 
     iframe {
@@ -88,16 +98,17 @@
       height: 300px;
       border: none;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       border-radius: 10px;
+      transition: transform 0.3s ease;
     }
 
     iframe:hover {
-      transform: scale(1.03);
+      transform: scale(1.05);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-      border: 2px solid #FF7043;
     }
 
+    /* 響應式設計 */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -108,43 +119,52 @@
       }
 
       header h1 {
-        font-size: 2em;
+        font-size: 2.2em;
+      }
+
+      iframe {
+        height: 250px;
       }
     }
 
-    /* 圖片與文字區塊設計 */
-    .image-text-section {
-      margin-top: 20px;
-      text-align: justify;
-      padding: 20px;
-      background-color: #E6D8D1;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      line-height: 1.8;
+    /* 圖片與文字區塊 */
+    .image-text-container {
       display: flex;
       align-items: center;
       gap: 20px;
+      background-color: #E6D8D1;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
 
-    .image-text-section img {
+    .image-text-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-text-container img {
       max-width: 40%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .image-text-section .content {
+    .image-text-container .text-content {
       flex: 1;
     }
 
-    .image-text-section .title {
+    .image-text-container .text-content .title {
       background-color: #B9BFA7;
       color: #FFFFFF;
-      font-size: 1.5em;
+      font-size: 1.6em;
       padding: 8px 20px;
       border-radius: 30px;
       display: inline-block;
       margin-bottom: 20px;
+      text-align: center;
     }
   </style>
 </head>
@@ -153,7 +173,6 @@
     <h1>桃園市65歲以上高齡人口分析洞察</h1>
     <hr/>
   </header>
-
   <div class="container">
     <!-- 左側：說明文字 -->
     <div class="card">
@@ -192,19 +211,13 @@
   </div>
 
   <!-- 圖片與文字區塊 -->
-  <div class="image-text-section">
+  <div class="image-text-container">
     <img src="A1123303_邱佑芹_0506_ChatGPT.png" alt="圖片描述">
-    <div class="content">
+    <div class="text-content">
       <div class="title">集點子計畫</div>
-      <p style="text-indent: 2em;">
-        桃園市偏鄉高齡者面臨長照與溝通困難，特別在語言與科技上的隔閡。多數長輩慣用母語，而年輕世代則使用國語，形成溝通斷層。因此，我希望以攝影為媒介，促進長輩與社區的連結與互動。
-      </p>
-      <p style="text-indent: 2em;">
-        對願意外出的長輩，鼓勵培養攝影興趣，兼顧鍛鍊身體與生活分享，並運用手機「以圖搜圖」功能，無須打字即能查找資訊，間接學習語言。對不習慣出門者，透過社區群組欣賞照片，拓展視野、改善心理狀態，提升參與動機。
-      </p>
-      <p style="text-indent: 2em;">
-        行動不便者也能拍攝家中或窗外景物，參與線上交流，維持社交互動。長期推動後，社區可舉辦攝影比賽、設立相片牆，展出長輩作品，提升自信與成就感。此舉除促進健康與社交外，亦有助於提升生活便利性。
-      </p>
+      <p style="text-indent: 2em;">桃園市偏鄉高齡者面臨長照與溝通困難，特別在語言與科技上的隔閡。多數長輩慣用母語，而年輕世代則使用國語，形成溝通斷層。因此，我希望以攝影為媒介，促進長輩與社區的連結與互動。</p>
+      <p style="text-indent: 2em;">對願意外出的長輩，鼓勵培養攝影興趣，兼顧鍛鍊身體與生活分享，並運用手機「以圖搜圖」功能，無須打字即能查找資訊，間接學習語言。對不習慣出門者，透過社區群組欣賞照片，拓展視野、改善心理狀態，提升參與動機。</p>
+      <p style="text-indent: 2em;">行動不便者也能拍攝家中或窗外景物，參與線上交流，維持社交互動。長期推動後，社區可舉辦攝影比賽、設立相片牆，展出長輩作品，提升自信與成就感。此舉除促進健康與社交外，亦有助於提升生活便利性與語言學習，打造兼具關懷與互動的高齡友善社區。</p>
     </div>
   </div>
 </body>
