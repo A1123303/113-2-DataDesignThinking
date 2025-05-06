@@ -7,22 +7,25 @@
   <style>
     body {
       background-color: #F5E4D7;
-      font-family: "標楷體", serif;
+      font-family: "微軟正黑體", Arial, sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.8;
+      color: #333;
     }
 
     header {
       text-align: center;
       padding: 40px 20px;
       background-color: #F5E4D7;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
     header h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
       color: #4A4A4A;
       margin: 0;
+      font-weight: bold;
     }
 
     .container {
@@ -33,12 +36,13 @@
       flex-wrap: wrap;
       margin: 20px;
       padding: 20px;
-      gap: 20px;
+      gap: 30px;
     }
 
     .card, .chart-area {
       flex: 1 1 48%;
       box-sizing: border-box;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card {
@@ -47,12 +51,17 @@
       padding: 30px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
       text-align: left;
-      font-size: 1.1em; /* Increase font size */
+      font-size: 1.1em;
       height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     .card p, .card ul {
-      color: #333;
       margin: 0 0 1em 0;
     }
 
@@ -70,17 +79,18 @@
     .chart-title-card {
       background-color: #CCD2CC;
       border-radius: 10px;
-      padding: 10px;
+      padding: 15px;
       width: 100%;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .chart-title-card h2 {
-      font-size: 1.2em;
+      font-size: 1.4em;
       color: #4A4A4A;
       margin: 0;
+      font-weight: bold;
     }
 
     iframe {
@@ -88,15 +98,17 @@
       height: 300px;
       border: none;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       border-radius: 10px;
+      transition: transform 0.3s ease;
     }
 
     iframe:hover {
-      transform: scale(1.03);
+      transform: scale(1.05);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
     }
 
+    /* 響應式設計 */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -107,8 +119,52 @@
       }
 
       header h1 {
-        font-size: 2em;
+        font-size: 2.2em;
       }
+
+      iframe {
+        height: 250px;
+      }
+    }
+
+    /* 圖片與文字區塊 */
+    .image-text-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: #E6D8D1;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .image-text-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-text-container img {
+      max-width: 40%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-text-container .text-content {
+      flex: 1;
+    }
+
+    .image-text-container .text-content .title {
+      background-color: #B9BFA7;
+      color: #FFFFFF;
+      font-size: 1.6em;
+      padding: 8px 20px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 20px;
+      text-align: center;
     }
   </style>
 </head>
@@ -123,9 +179,9 @@
       <p>&emsp;&emsp;透過村里級人口熱力圖可明確觀察：桃園市的高齡人口並非均勻分布，而是呈現出強烈的都市集中化趨勢，其中桃園區的同安里為全市65歲以上人口最多的村里，推估約有1,600人，遠高於鄰近的永安里（約1,400人）與汴洲里（約1,300人）。這些區域不僅擁有完備的醫療與交通資源，也是數十年前即開發的住宅核心，居民老化速度自然加劇。</p>
       <p><strong>這類區域的共通特徵是：</strong></p>
       <ul>
-        <li>原地老化現象明顯：因交通便利與生活機能穩定，長者傾向留居而非遷出；</li>
-        <li>房價相對穩定：中低所得家庭與長者租屋者得以長期安居；</li>
-        <li>醫療與照護資源可及性高：吸引有照護需求的家庭安置長者於此。</li>
+        <li>原地老化現象明顯：因交通便利與生活機能穩定，長者傾向留居而非遷出</li>
+        <li>房價相對穩定：中低所得家庭與長者租屋者得以長期安居</li>
+        <li>醫療與照護資源可及性高：吸引有照護需求的家庭安置長者於此</li>
       </ul>
       <p>&emsp;&emsp;分析性別圖可發現，在如中壢區芝芭里與桃園區永安里，女性高齡人口約占高齡總數的60%，反映出女性壽命長於男性的社會結構性現象，也預示照護與社區支持設施未來應以女性為主體進行優化。</p>
       <p>&emsp;&emsp;而如中壢區龍昌里與龜山區文化里，則呈現男性高齡人口相對集中，可能與這些地區曾為軍眷村或工業就業重鎮有關，過去大量男性勞工或軍人退休後留居至今，形成不同的老化性別地景。</p>
@@ -153,28 +209,16 @@
       <iframe src="https://plotdb.io/v/chart/37340" allowfullscreen="true"></iframe>
     </div>
   </div>
-  <div style="margin: 20px; padding: 20px; text-align: justify; background-color: #E6D8D1; border-radius: 15px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); line-height: 1.8; display: flex; align-items: flex-start;">
-    <!-- 圖片放在左邊 -->
-    <img src="A1123303_邱佑芹_0506_ChatGPT.png" alt="圖片描述" style="max-width: 40%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-right: 20px;">
-    
-    <!-- 文字內容放在右邊 -->
-    <div style="flex: 1; margin-left: 20px;">
-        <!-- 集點子計畫的文字完全置中 -->
-        <div style="background-color: #B9BFA7; color: #FFFFFF; font-size: 1.5em; padding: 8px 20px; border-radius: 30px; display: flex; justify-content: center; align-items: center; margin: 0 auto 20px; text-align: center;">
-            集點子計畫
-        </div>
-      
-        <p style="text-indent: 2em;">
-            桃園市偏鄉高齡者面臨長照與溝通困難，特別在語言與科技上的隔閡。多數長輩慣用母語，而年輕世代則使用國語，形成溝通斷層。因此，我希望以攝影為媒介，促進長輩與社區的連結與互動。
-        </p>
-        <p style="text-indent: 2em;">
-            對願意外出的長輩，鼓勵培養攝影興趣，兼顧鍛鍊身體與生活分享，並運用手機「以圖搜圖」功能，無須打字即能查找資訊，間接學習語言。對不習慣出門者，透過社區群組欣賞照片，拓展視野、改善心理狀態，提升參與動機。
-        </p>
-        <p style="text-indent: 2em;">
-            行動不便者也能拍攝家中或窗外景物，參與線上交流，維持社交互動。長期推動後，社區可舉辦攝影比賽、設立相片牆，展出長輩作品，提升自信與成就感。此舉除促進健康與社交外，亦有助於提升生活便利性與語言學習，打造兼具關懷與互動的高齡友善社區。
-        </p>
-    </div>
-</div>
 
+  <!-- 圖片與文字區塊 -->
+  <div class="image-text-container">
+    <img src="A1123303_邱佑芹_0506_ChatGPT.png" alt="圖片描述">
+    <div class="text-content">
+      <div class="title">集點子計畫</div>
+      <p style="text-indent: 2em;">桃園市偏鄉高齡者面臨長照與溝通困難，特別在語言與科技上的隔閡。多數長輩慣用母語，而年輕世代則使用國語，形成溝通斷層。因此，我希望以攝影為媒介，促進長輩與社區的連結與互動。</p>
+      <p style="text-indent: 2em;">對願意外出的長輩，鼓勵培養攝影興趣，兼顧鍛鍊身體與生活分享，並運用手機「以圖搜圖」功能，無須打字即能查找資訊，間接學習語言。對不習慣出門者，透過社區群組欣賞照片，拓展視野、改善心理狀態，提升參與動機。</p>
+      <p style="text-indent: 2em;">行動不便者也能拍攝家中或窗外景物，參與線上交流，維持社交互動。長期推動後，社區可舉辦攝影比賽、設立相片牆，展出長輩作品，提升自信與成就感。此舉除促進健康與社交外，亦有助於提升生活便利性與語言學習，打造兼具關懷與互動的高齡友善社區。</p>
+    </div>
+  </div>
 </body>
 </html>
