@@ -26,113 +26,28 @@
             margin: 0;
         }
 
-        .container {
-            display: flex;
-            flex-direction: row; /* 改為左右分佈 */
-            justify-content: space-between;
-            align-items: flex-start;
-            margin: 20px;
-            padding: 20px;
-        }
-
-        /* 左側文字區域樣式 */
-        .text-section {
-            width: 60%; /* 左邊占60%寬度 */
-            padding-right: 20px;
-        }
-
-        .text-section p {
+        .content-box {
             background-color: #F8F4E3; /* 背景色 */
-            padding: 15px; /* 內邊距 */
             border-radius: 10px; /* 圓弧邊角 */
             border: 2px double #A58D5F; /* 雙線框 */
-            margin-bottom: 15px; /* 段落之間的間距 */
+            padding: 20px; /* 內邊距 */
+            margin: 20px auto; /* 垂直置中 */
+            width: 90%; /* 占螢幕寬度 */
         }
 
-        .text-section ul {
-            padding-left: 20px; /* 調整清單縮排 */
-            margin-bottom: 15px; /* 清單之間的間距 */
-        }
-
-        .text-section li {
-            color: #333;
-        }
-
-        /* 右側圖表區域樣式 */
-        .chart-section {
-            width: 33.33%; /* 右邊占33.33%寬度 */
-            text-align: center; /* 圖表置中對齊 */
-        }
-
-        /* 圖表名稱樣式 */
-        .chart-title-card {
-            background-color: #CCD2CC; /* 莫蘭迪淺綠色 */
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 10px;
-            text-align: center; /* 標題置中 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .chart-title-card h2 {
-            font-size: 1.5em; /* 縮小字體 */
-            color: #4A4A4A; /* 深灰色 */
-            margin: 0;
-        }
-
-        /* 圖表嵌入樣式 */
-        iframe {
-            width: 100%;
-            height: 400px; /* 圖表高度 */
+        .content-box iframe {
+            width: 50%; /* 圖表寬度調整為50% */
+            height: 200px; /* 調整圖表高度 */
             border: none;
-            margin-bottom: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s, box-shadow 0.3s; /* 動態效果 */
+            display: block;
+            margin: 20px auto; /* 水平置中並調整底部間距 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 陰影 */
         }
 
-        iframe:hover {
-            transform: scale(1.03); /* 放大效果 */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* 增強陰影 */
-        }
-
-        /* 響應式設計 */
-        @media (max-width: 1024px) {
-            header h1 {
-                font-size: 2em; /* 調整標題大小 */
-            }
-
-            .container {
-                flex-direction: column; /* 改為上下分佈 */
-            }
-
-            .text-section {
-                width: 100%;
-                padding-right: 0;
-            }
-
-            .chart-section {
-                width: 100%;
-            }
-
-            iframe {
-                height: 300px; /* 減少圖表高度 */
-            }
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em; /* 更小的標題 */
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.5em; /* 手機版標題 */
-            }
-
-            iframe {
-                height: 250px; /* 手機版圖表高度 */
-            }
+        .content-box h2 {
+            text-align: center;
+            font-size: 1.5em;
+            color: #4A4A4A; /* 深灰色 */
         }
     </style>
 </head>
@@ -141,41 +56,29 @@
         <h1>桃園市65歲以上高齡人口分析洞察</h1>
         <hr/>
     </header>
-    <div class="container">
-        <!-- 左側文字區域 -->
-        <div class="text-section">
-            <p>&emsp;&emsp;透過村里級人口熱力圖可明確觀察：桃園市的高齡人口並非均勻分布，而是呈現出強烈的都市集中化趨勢，其中桃園區的同安里與中壢區的芝芭里分別呈現高密度分佈。</p>
-            <p><strong>這類區域的共通特徵是：</strong></p>
-            <ul>
-                <li>原地老化現象明顯：因交通便利與生活機能穩定，長者傾向留居而非遷出；</li>
-                <li>房價相對穩定：中低所得家庭與長者租屋者得以長期安居；</li>
-                <li>醫療與照護資源可及性高：吸引有照護需求的家庭安置長者於此。</li>
-            </ul>
-            <p>&emsp;&emsp;分析性別圖可發現，在如中壢區芝芭里與桃園區永安里，女性高齡人口約占高齡總數的60%，反映出女性壽命長於男性的社會結構。</p>
-            <p>&emsp;&emsp;而如中壢區龍昌里與龜山區文化里，則呈現男性高齡人口相對集中，可能與這些地區曾為軍眷村或工業就業重鎮有關，過去大量男性勞動力遷入形成社會結構特徵。</p>
-            <p>&emsp;&emsp;在平鎮區宋屋里與八德區茄苳里等處，65歲以上人口也在1,200人以上，屬於中高度老化區，但這些地方擁有較多透天社區與傳統聚落，生活機能足以支撐高齡人口。</p>
-            <p>&emsp;&emsp;反觀如觀音區、新屋區等郊區，雖整體高齡人口總量較低，但老年人口占比偏高，且醫療交通不便，潛藏「低密度高風險」的照護挑戰。</p>
-            <p>&emsp;&emsp;這些數據不只是地圖上的色塊，而是萬千長者的日常軌跡與人生縮影。一個城市的成熟，並不在於高樓林立，而在於它是否能讓每個年齡層的人都擁有安穩的生活。</p>
-            <p>&emsp;&emsp;<b>願未來的桃園，不只是年輕人逐夢的舞台，更是每一位長者都能放心停留的家鄉。</b></p>
-        </div>
-        <!-- 右側圖表區域 -->
-        <div class="chart-section">
-            <!-- 第一個圖表 -->
-            <div class="chart-title-card">
-                <h2>桃園市65歲以上高齡人口熱力圖</h2>
-            </div>
-            <iframe src="https://plotdb.io/v/chart/37322" allowfullscreen="true"></iframe>
-            <!-- 第二個圖表 -->
-            <div class="chart-title-card">
-                <h2>桃園市65歲以上男性高齡人口熱力圖</h2>
-            </div>
-            <iframe src="https://plotdb.io/v/chart/37333" allowfullscreen="true"></iframe>
-            <!-- 第三個圖表 -->
-            <div class="chart-title-card">
-                <h2>桃園市65歲以上女性高齡人口熱力圖</h2>
-            </div>
-            <iframe src="https://plotdb.io/v/chart/37340" allowfullscreen="true"></iframe>
-        </div>
+    <div class="content-box">
+        <!-- 文字區域 -->
+        <p>&emsp;&emsp;透過村里級人口熱力圖可明確觀察：桃園市的高齡人口並非均勻分布，而是呈現出強烈的都市集中化趨勢，其中桃園區的同安里[...]</p>
+        <p><strong>這類區域的共通特徵是：</strong></p>
+        <ul>
+            <li>原地老化現象明顯：因交通便利與生活機能穩定，長者傾向留居而非遷出；</li>
+            <li>房價相對穩定：中低所得家庭與長者租屋者得以長期安居；</li>
+            <li>醫療與照護資源可及性高：吸引有照護需求的家庭安置長者於此。</li>
+        </ul>
+        <p>&emsp;&emsp;分析性別圖可發現，在如中壢區芝芭里與桃園區永安里，女性高齡人口約占高齡總數的60%，反映出女性壽命長於男性的社會結構[...]</p>
+        <p>&emsp;&emsp;而如中壢區龍昌里與龜山區文化里，則呈現男性高齡人口相對集中，可能與這些地區曾為軍眷村或工業就業重鎮有關，過去大量[...]</p>
+        <p>&emsp;&emsp;在平鎮區宋屋里與八德區茄苳里等處，65歲以上人口也在1,200人以上，屬於中高度老化區，但這些地方擁有較多透天社區與傳統[...]</p>
+        <p>&emsp;&emsp;反觀如觀音區、新屋區等郊區，雖整體高齡人口總量較低，但老年人口占比偏高，且醫療交通不便，潛藏「低密度高風險」的照[...]</p>
+        <p>&emsp;&emsp;這些數據不只是地圖上的色塊，而是萬千長者的日常軌跡與人生縮影。一個城市的成熟，並不在於高樓林立，而在於它是否能讓[...]</p>
+        <p>&emsp;&emsp;<b>願未來的桃園，不只是年輕人逐夢的舞台，更是每一位長者都能放心停留的家鄉。</b></p>
+
+        <!-- 圖表區域 -->
+        <h2>桃園市65歲以上高齡人口熱力圖</h2>
+        <iframe src="https://plotdb.io/v/chart/37322" allowfullscreen="true"></iframe>
+        <h2>桃園市65歲以上男性高齡人口熱力圖</h2>
+        <iframe src="https://plotdb.io/v/chart/37333" allowfullscreen="true"></iframe>
+        <h2>桃園市65歲以上女性高齡人口熱力圖</h2>
+        <iframe src="https://plotdb.io/v/chart/37340" allowfullscreen="true"></iframe>
     </div>
 </body>
 </html>
