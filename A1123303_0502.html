@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A1123303 Data Design: 桃園市65歲以上人口分析</title>
+    <style>
+        /* 全域樣式 */
+        body {
+            background-color: #F5E4D7; /* 淡香檳色 */
+            font-family: "標楷體", serif; /* 字型設為標楷體 */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center; /* 保持標題區塊置中 */
+            padding: 40px 20px;
+            background-color: #F5E4D7;
+        }
+
+        header h1 {
+            font-size: 3em; /* 增大字體 */
+            color: #4A4A4A; /* 深灰色 */
+            margin: 0;
+            text-align: center; /* 標題文字置中 */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        /* 圖卡樣式 */
+        .card {
+            background-color: #D6E1E3; /* 更淺的莫蘭迪藍色 */
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 95%; /* 增加最大寬度 */
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 陰影效果 */
+            text-align: left; /* 保持靠左對齊 */
+            transition: transform 0.3s, box-shadow 0.3s; /* 動態效果 */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* 放大效果 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* 增強陰影 */
+        }
+
+        .card p, .card ul {
+            color: #333;
+            font-size: 1.5em; /* 增大字體 */
+            margin: 0;
+        }
+
+        /* 圖表名稱樣式 */
+        .chart-title-card {
+            background-color: #CCD2CC; /* 莫蘭迪淺綠色 */
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 95%; /* 增加最大寬度 */
+            margin-bottom: 10px;
+            text-align: center; /* 標題置中 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title-card h2 {
+            font-size: 1.8em; /* 增大字體 */
+            color: #4A4A4A; /* 深灰色 */
+            margin: 0;
+        }
+
+        /* 圖表嵌入樣式 */
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            border: none;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s; /* 動態效果 */
+        }
+
+        iframe:hover {
+            transform: scale(1.03); /* 放大效果 */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* 增強陰影 */
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 1024px) {
+            header h1 {
+                font-size: 2.5em; /* 調整標題大小 */
+            }
+
+            .card {
+                max-width: 90%;
+                padding: 15px;
+            }
+
+            .chart-title-card {
+                max-width: 90%;
+                padding: 10px;
+            }
+
+            iframe {
+                height: 500px; /* 減少圖表高度 */
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em; /* 更小的標題 */
+            }
+
+            .card {
+                max-width: 90%;
+                padding: 10px;
+            }
+
+            .chart-title-card {
+                max-width: 90%;
+                padding: 8px;
+            }
+
+            iframe {
+                height: 400px; /* 更小的圖表高度 */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em; /* 手機版標題 */
+            }
+
+            .card {
+                max-width: 95%;
+                padding: 8px;
+            }
+
+            .chart-title-card {
+                max-width: 95%;
+                padding: 5px;
+            }
+
+            iframe {
+                height: 300px; /* 手機版圖表高度 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>桃園市65歲以上高齡人口分析洞察</h1>
+    </header>
+    <div class="container">
+        <!-- 圖卡介紹文字 -->
+        <div class="card">
+            <p>&emsp;&emsp;透過村里級人口熱力圖可明確觀察：桃園市的高齡人口並非均勻分布，而是呈現出強烈的都市集中化趨勢，其中桃園區的同安里為全市65歲以上人口最多的村里，推估約有1,600人，遠高於鄰近的永安里（約1,400人）與汴洲里（約1,300人）。這些區域不僅擁有完備的醫療與交通資源，也是數十年前即開發的住宅核心，居民老化速度自然加劇。</p>
+
+            <p><strong>這類區域的共通特徵是：</strong></p>
+            <ul>
+                <li>原地老化現象明顯：因交通便利與生活機能穩定，長者傾向留居而非遷出；</li>
+                <li>房價相對穩定：中低所得家庭與長者租屋者得以長期安居；</li>
+                <li>醫療與照護資源可及性高：吸引有照護需求的家庭安置長者於此。</li>
+            </ul>
+
+            <p>&emsp;&emsp;分析性別圖可發現，在如中壢區芝芭里與桃園區永安里，女性高齡人口約占高齡總數的60%，反映出女性壽命長於男性的社會結構性現象，也預示照護與社區支持設施未來應以女性為主體進行優化。</p>
+            <p>&emsp;&emsp;而如中壢區龍昌里與龜山區文化里，則呈現男性高齡人口相對集中，可能與這些地區曾為軍眷村或工業就業重鎮有關，過去大量男性勞工或軍人退休後留居至今，形成不同的老化性別地景。</p>
+
+            <p>&emsp;&emsp;在平鎮區宋屋里與八德區茄苳里等處，65歲以上人口也在1,200人以上，屬於中高度老化區，但這些地方擁有較多透天社區與傳統市場，形成社會互助網絡，有助於減緩老化孤立感。</p>
+            <p>&emsp;&emsp;反觀如觀音區、新屋區等郊區，雖整體高齡人口總量較低，但老年人口占比偏高，且醫療交通不便，潛藏「低密度高風險」的照護挑戰，應及早佈局巡迴醫療與移動社福資源。</p>
+
+            <p>&emsp;&emsp;這些數據不只是地圖上的色塊，而是萬千長者的日常軌跡與人生縮影。一個城市的成熟，並不在於高樓林立，而在於它是否能讓人安然老去。桃園正在經歷人口結構的關鍵轉型期，從同安里的壓力，到鄉間村里的隱憂，都是對城市倫理與治理智慧的考驗。</p>
+            <p>&emsp;&emsp;<b>願未來的桃園，不只是年輕人逐夢的舞台，更是每一位長者都能放心停留的家鄉。</b></p>
+        </div>
+        <!-- 第一個圖表 -->
+        <div class="chart-title-card">
+            <h2>桃園市65歲以上高齡人口熱力圖</h2>
+        </div>
+        <iframe src="https://plotdb.io/v/chart/37322" allowfullscreen="true"></iframe>
+        <!-- 第二個圖表 -->
+        <div class="chart-title-card">
+            <h2>桃園市65歲以上男性高齡人口熱力圖</h2>
+        </div>
+        <iframe src="https://plotdb.io/v/chart/37333" allowfullscreen="true"></iframe>
+        <!-- 第三個圖表 -->
+        <div class="chart-title-card">
+            <h2>桃園市65歲以上女性高齡人口熱力圖</h2>
+        </div>
+        <iframe src="https://plotdb.io/v/chart/37340" allowfullscreen="true"></iframe>
+    </div>
+</body>
+</html>
