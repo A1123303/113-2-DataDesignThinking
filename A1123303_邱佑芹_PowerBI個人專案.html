@@ -2,195 +2,171 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>A1123303 邱佑芹 PowerBI 個人專案</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700;400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      font-family: 'Noto Sans TC', 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #e0e7ff 0%, #fff9f0 100%);
-      color: #333;
-      min-height: 100vh;
-    }
-    header {
-      padding: 2rem 1rem 1rem 1rem;
-      text-align: center;
-      background: rgba(255,255,255,0.9);
-      box-shadow: 0 2px 8px 0 rgba(0,32,128,0.05);
-      position: relative;
-    }
-    header h1 {
-      font-size: 2.4rem;
-      letter-spacing: 2px;
-      margin: 0;
-      background: linear-gradient(90deg, #6366f1 60%, #fbbf24 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeInDown 0.9s cubic-bezier(.7,-0.41,.58,1.3);
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-40px);}
-      to   { opacity: 1; transform: translateY(0);}
-    }
-    .content {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: rgba(255,255,255,0.96);
-      border-radius: 24px;
-      box-shadow: 0 8px 24px 0 rgba(99,102,241,0.08);
-      animation: fadeIn 1.2s both;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.98);}
-      to   { opacity: 1; transform: scale(1);}
-    }
-    .section-title {
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: #6366f1;
-      position: relative;
-      z-index: 2;
-      display: inline-block;
-      background: linear-gradient(90deg,#6366f1 70%,#fbbf24 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .thinking {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #444;
-      margin-bottom: 2rem;
-      letter-spacing: 0.5px;
-      text-align: justify;
-      background: rgba(246, 239, 255, 0.17);
-      border-left: 4px solid #a5b4fc;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 1px 2px 0 rgba(99,102,241,0.03);
-      animation: fadeIn 2.1s;
-    }
-    .viz-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: box-shadow 0.3s;
-    }
-    .viz-section:hover {
-      box-shadow: 0 8px 32px 0 rgba(99,102,241,0.13), 0 1.5px 3px 0 rgba(251,191,36,0.09);
-      transform: scale(1.012);
-    }
-    .viz-title {
-      font-size: 1.2rem;
-      color: #f59e42;
-      margin-bottom: .3rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      animation: fadeInDown 1.2s;
-    }
-    .powerbi-iframe {
-      width: 100%;
-      max-width: 820px;
-      min-height: 420px;
-      height: 53vw;
-      max-height: 600px;
-      border: none;
-      border-radius: 14px;
-      transition: box-shadow 0.3s;
-      box-shadow: 0 4px 24px 0 rgba(99,102,241,0.13);
-      background: #f9fafb;
-      margin-bottom: 1rem;
-      animation: popIn 1.7s cubic-bezier(.7,0,.58,1.3);
-    }
-    @keyframes popIn {
-      0% { opacity: 0; transform: scale(.92);}
-      80% { opacity: .7; transform: scale(1.03);}
-      100% { opacity: 1; transform: scale(1);}
-    }
-    /* 響應式設計 */
-    @media (max-width: 1024px) {
-      .content { padding: 1.2rem; }
-      .powerbi-iframe { min-height: 340px; }
-    }
-    @media (max-width: 700px) {
-      header h1 { font-size: 1.5rem; }
-      .content { padding: 0.5rem; }
-      .powerbi-iframe { min-height: 280px; height: 66vw; }
-    }
-    /* 按鈕動畫 */
-    .action-btn {
-      display: inline-block;
-      margin-top: 1.2rem;
-      padding: .7rem 2.3rem;
-      font-size: 1.1rem;
-      background: linear-gradient(90deg,#6366f1 60%,#fbbf24 100%);
-      color: #fff;
-      border: none;
-      border-radius: 2rem;
-      box-shadow: 0 2px 8px 0 rgba(251,191,36,0.13);
+    body { font-family: "Microsoft JhengHei", "PingFang TC", "Arial", sans-serif; background: #f4f8fb; margin: 0; padding: 0; }
+    .container { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 12px #0001; padding: 32px 24px; }
+    .tab-btn-group { margin-bottom: 20px; }
+    .tab-btn {
+      padding: 8px 16px;
       cursor: pointer;
-      transition: transform .15s, box-shadow .18s, background .21s;
-      font-weight: 700;
-      letter-spacing: 2px;
-      outline: none;
-      animation: fadeInUp 2.6s;
+      border: 1px solid #ccc;
+      background: #f8f8f8;
+      border-radius: 4px 4px 0 0;
+      margin-right: 3px;
+      transition: background 0.18s;
+      font-size: 1em;
     }
-    .action-btn:hover {
-      transform: translateY(-4px) scale(1.04);
-      box-shadow: 0 8px 24px 0 rgba(99,102,241,0.13);
-      background: linear-gradient(90deg,#6366f1 80%,#fbbf24 100%);
+    .tab-btn.active {
+      background: #fff;
+      border-bottom: 1px solid #fff;
+      font-weight: bold;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px);}
-      to   { opacity: 1; transform: translateY(0);}
+    .tab-content {
+      border: 1px solid #ccc;
+      border-radius: 0 4px 4px 4px;
+      padding: 20px;
+      background: #fff;
+      display: none;
+      min-height: 200px;
+    }
+    .tab-content.active { display: block; }
+    .dikw-list { margin-left: 2em; }
+    h1 { text-align: center; font-size: 2em; margin-bottom: 24px; }
+    @media (max-width:600px) {
+      .container { padding: 10px 2vw; }
+      .tab-btn { font-size: 0.95em; padding: 5px 6px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>A1123303 邱佑芹 PowerBI 個人專案</h1>
-  </header>
+<div class="container">
+  <h1>PowerBI 個人專案分頁說明</h1>
+  <div class="tab-btn-group">
+    <button class="tab-btn active" onclick="switchTab(0)">📈 頁面一：每日雨量圖</button>
+    <button class="tab-btn" onclick="switchTab(1)">🌲 頁面二：分解樹狀結構</button>
+    <button class="tab-btn" onclick="switchTab(2)">🎗 頁面三：緞帶圖視覺</button>
+    <button class="tab-btn" onclick="switchTab(3)">💧 頁面四：瀑布圖視覺</button>
+    <button class="tab-btn" onclick="switchTab(4)">🗺 頁面五：地圖-區域圖</button>
+  </div>
 
-  <main class="content">
-    <div class="section-title">資料設計思考</div>
-    <div class="thinking">
-      本專案以資料設計思考(Data Design Thinking)為核心，從問題定義、數據收集、資料前處理、視覺化分析到洞察發掘，致力於將複雜的數據轉化為直觀、易理解的圖表資訊，協助決策者掌握全局、洞見未來。
-      <br>
-      <strong>設計流程：</strong>
-      <ol style="margin:0 0 0 1.3rem;">
-        <li>明確專案目標與分析問題情境。</li>
-        <li>蒐集並整理相關資料，進行清洗與標準化。</li>
-        <li>依據需求設計互動式儀表板，強調資料與商業決策的連結。</li>
-        <li>透過視覺化呈現，協助使用者快速掌握重點，挖掘深層洞察。</li>
-      </ol>
-      <br>
-      期望藉由 Power BI 提供的互動性與美觀報表設計，提升資料分析的效率與價值。
-    </div>
+  <div class="tab-content active">
+    <h2>📈 頁面一：各月每日雨量圖（折線圖）</h2>
+    <ul>
+      <li><b>研究問題：</b>每月每日的降雨分布情況為何？是否有異常高雨量日？</li>
+      <li><b>視覺化與互動設計：</b>
+        <ul class="dikw-list">
+          <li>使用折線圖呈現每日雨量變化</li>
+          <li>以月份分類，顯示趨勢波動</li>
+          <li>滑動工具可選擇月份區間進行比較</li>
+        </ul>
+      </li>
+      <li><b>DIKW 對應：</b>
+        <ul class="dikw-list">
+          <li><b>資料：</b>原始每日測站降雨資料（以日期分類）</li>
+          <li><b>資訊：</b>各月份內的降雨趨勢、極端值視覺化呈現</li>
+          <li><b>知識：</b>可判斷哪些月份有極端氣候現象（如暴雨集中）</li>
+          <li><b>智慧：</b>應用於防災、活動規劃等情境中選擇適當時機</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
-    <div class="viz-section">
-      <div class="viz-title">Power BI 互動儀表板展示</div>
-      <iframe title="A1123303_邱佑芹_PowerBI個人專案" width="1024" height="1060"
-        src="https://app.powerbi.com/view?r=eyJrIjoiODNjNzQyNWItMGQwNi00OTc4LWI2M2QtNzE4MTU5MDY1MDhlIiwidCI6IjVhNDg0OTUzLTc3ZWYtNDJlYy05MGNmLTJmNGUxMDM3ZmZjNyIsImMiOjEwfQ%3D%3D"
-        frameborder="0" allowFullScreen="true" class="powerbi-iframe">
-      </iframe>
-    </div>
-  </main>
-  <script>
-    // 加入小型動畫：滾動時動畫效果
-    document.addEventListener('scroll', function() {
-      let vizSection = document.querySelector('.viz-section');
-      let rect = vizSection.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 120) {
-        vizSection.style.boxShadow = '0 16px 48px 0 rgba(99,102,241,0.18)';
-        vizSection.style.transform = 'scale(1.025)';
-      } else {
-        vizSection.style.boxShadow = '';
-        vizSection.style.transform = '';
-      }
-    });
-  </script>
+  <div class="tab-content">
+    <h2>🌲 頁面二：測站-分解樹狀結構</h2>
+    <ul>
+      <li><b>研究問題：</b>各測站的雨量分布有何差異？影響雨量的關鍵層級是什麼？</li>
+      <li><b>視覺化與互動設計：</b>
+        <ul class="dikw-list">
+          <li>採用樹狀結構（Decomposition Tree）呈現降雨的分解因素</li>
+          <li>可點選測站展開查看地區、時間或其他欄位細節</li>
+          <li>可互動篩選各層級資料進行鑽研</li>
+        </ul>
+      </li>
+      <li><b>DIKW 對應：</b>
+        <ul class="dikw-list">
+          <li><b>資料：</b>每筆測站與地區的降雨紀錄</li>
+          <li><b>資訊：</b>雨量可以依不同維度（測站、縣市、日期）分解查看</li>
+          <li><b>知識：</b>掌握主要影響降雨變化的因子與結構層級</li>
+          <li><b>智慧：</b>聚焦分析關鍵地區與時間點</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+    <h2>🎗 頁面三：緞帶圖視覺</h2>
+    <ul>
+      <li><b>研究問題：</b>哪幾個測站貢獻了最多總降雨？不同測站之間的關聯？</li>
+      <li><b>視覺化與互動設計：</b>
+        <ul class="dikw-list">
+          <li>緞帶圖展示不同測站之間的變化關係</li>
+          <li>點擊測站可即時過濾整體資料視角</li>
+        </ul>
+      </li>
+      <li><b>DIKW 對應：</b>
+        <ul class="dikw-list">
+          <li><b>資料：</b>各測站日常總降雨累積資料</li>
+          <li><b>資訊：</b>雨量的增減與測站貢獻一目了然</li>
+          <li><b>知識：</b>哪些測站主導整體趨勢、是否有明顯異常</li>
+          <li><b>智慧：</b>策略性推論（如調度防洪資源、監測重點站點）</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+    <h2>💧 頁面四：瀑布圖視覺</h2>
+    <ul>
+      <li><b>研究問題：</b>雨量增加或減少的變化趨勢為何？</li>
+      <li><b>視覺化與互動設計：</b>
+        <ul class="dikw-list">
+          <li>瀑布圖呈現總雨量變化的「增減構成」</li>
+          <li>點擊測站可即時過濾整體資料視角</li>
+        </ul>
+      </li>
+      <li><b>DIKW 對應：</b>
+        <ul class="dikw-list">
+          <li><b>資料：</b>各測站日常總降雨累積資料</li>
+          <li><b>資訊：</b>各時期雨量增減一目了然</li>
+          <li><b>知識：</b>辨識顯著增減的時間點或測站</li>
+          <li><b>智慧：</b>評估特殊事件與防災策略調整</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+    <h2>🗺 頁面五：地圖 - 區域圖呈現</h2>
+    <ul>
+      <li><b>研究問題：</b>不同地區的降雨情況空間分布如何？是否有集中的雨量熱點？</li>
+      <li><b>視覺化與互動設計：</b>
+        <ul class="dikw-list">
+          <li>地圖顯示各測站空間位置與對應降雨數值</li>
+          <li>顏色強度標示不同雨量區間，熱區清楚</li>
+          <li>使用者可依地區放大檢視與互動比對</li>
+        </ul>
+      </li>
+      <li><b>DIKW 對應：</b>
+        <ul class="dikw-list">
+          <li><b>資料：</b>每個測站的地理座標與降雨值</li>
+          <li><b>資訊：</b>以空間方式視覺化雨量分布</li>
+          <li><b>知識：</b>辨識出容易出現豪雨的地區分布</li>
+          <li><b>智慧：</b>區域調度、防災預測、公共政策支援</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+function switchTab(idx) {
+  var btns = document.querySelectorAll('.tab-btn');
+  var contents = document.querySelectorAll('.tab-content');
+  btns.forEach((btn, i) => btn.classList.toggle('active', i === idx));
+  contents.forEach((ct, i) => ct.classList.toggle('active', i === idx));
+}
+</script>
 </body>
 </html>
